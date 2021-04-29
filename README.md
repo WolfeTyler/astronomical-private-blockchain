@@ -50,6 +50,9 @@ The Boilerplate code is a simple architecture for a Blockchain application, it i
 5. Using [Postman](https://www.postman.com/) you can GET http://localhost:8000/block/height/0 which will create/request the Genesis Block
 ![alt text](https://github.com/WolfeTyler/astronomical-private-blockchain/blob/main/screenshots/PostmanGenesisBlock.png)
 6. Next in Postman POST http://localhost:8000/requestValidation to request ownership which will respond with a message
-8. Sign the message using a Bitcoin wallet such as [Electrum](https://electrum.org/#home) (with Legacy seeding)
-9. You can then submit a new star to the blockchain
-10. Finally, all stars can be retrieved by owner based on their Bitcoin wallet id
+![alt text](https://github.com/WolfeTyler/astronomical-private-blockchain/blob/main/screenshots/RequestValidationwithWallet.png)
+7. Sign the message using a Bitcoin wallet such as [Electrum](https://electrum.org/#home) (with Legacy seeding)
+8. You can then submit a new star to the blockchain
+![alt text](https://github.com/WolfeTyler/astronomical-private-blockchain/blob/main/screenshots/SignMessageSubmitStar1.png)
+9. Finally, all stars can be retrieved by owner based on their Bitcoin wallet id
+![alt text](https://github.com/WolfeTyler/astronomical-private-blockchain/blob/main/screenshots/RequestStarsbyWallet.png)
