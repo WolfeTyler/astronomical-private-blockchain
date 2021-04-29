@@ -1,7 +1,7 @@
 # Astronomical Private Blockchain Application
 
 
-### Purpose and API Workflow
+## Purpose and API Workflow
 
 1. It will create a Genesis Block when we run the application.
 2. The user will request the application to send a message to be signed using a Wallet and in this way verify the ownership over the wallet address. The message format will be: `<WALLET_ADRESS>:${new Date().getTime().toString().slice(0,-3)}:starRegistry`;
@@ -41,7 +41,7 @@ The Boilerplate code is a simple architecture for a Blockchain application, it i
 2. `BlockchainController.js` file. It contains the routes of the REST Api. Those are the methods that expose the urls you will need to call when make a request to the application.
 3. `src` folder. Contains the `Block` and `BlockChain` classes.
 
-### Running Locally
+## Running Locally
 
 1. Download or clone our boilerplate code.
 2. Then we need to install all the libraries and module dependencies, to do that: open a terminal and run the command `npm install`
