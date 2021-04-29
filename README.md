@@ -47,4 +47,9 @@ The Boilerplate code is a simple architecture for a Blockchain application, it i
 2. Then we need to install all the libraries and module dependencies, to do that: open a terminal and run the command `npm install`
 3. Use the command: `node app.js`
 4. You can check in your terminal the the Express application is listening in the PORT 8000
-
+5. Using [Postman](https://www.postman.com/) you can GET http://localhost:8000/block/height/0 which will create/request the Genesis Block
+![alt text](https://github.com/WolfeTyler/astronomical-private-blockchain/images/PostmanGenesisBlock.png "Postman Genesis Block")
+6. Next in Postman POST http://localhost:8000/requestValidation to request ownership which will respond with a message
+8. Sign the message using a Bitcoin wallet such as [Electrum](https://electrum.org/#home) (with Legacy seeding)
+9. You can then submit a new star to the blockchain
+10. Finally, all stars can be retrieved by owner based on their Bitcoin wallet id
