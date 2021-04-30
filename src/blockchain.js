@@ -69,11 +69,17 @@ class Blockchain {
             block.hash = SHA256(JSON.stringify(block)).toString();
             self.chain.push(block);
             self.height += 1;
-            if (self.chain[self.height] == block) {
-                resolve(block);
-            } else {
-                reject(Error("Block failed addition."));
-            }
+
+            // Validate chain, removing last added block if chain is invalid
+            self.validateChain().then(errorLog => {
+                    if (errorLog.length > 0) {
+                        self.chain.pop();
+                        reject(errorLog);
+                    } else {
+                        resolve(block);
+                    }
+            });
+
         });
     }
     /**
@@ -188,30 +194,12 @@ class Blockchain {
         let self = this;
         let errorLog = [];
         return new Promise(async (resolve, reject) => {
-            if (self.height > 0) {
-                for (var i = 1; i <= self.height; i++) {
-                    let block = self.chain[i];
-                    let validation = await block.validate();
-                    if (!validation){
-                        console.log("Validation error");
-                    } else if (block.previousBlockHash != self.chain[i-1].hash) {
-                        console.log("Previous block hash error");
-                    }
+            self.chain.forEach(block => {
+                if(!block.validate()){
+                    errorLog.push(block);
                 }
-                if (errorLog) {
-                    resolve(errorLog);
-                } else {
-                    resolve("Chain is valid.");
-                }
-            } else {
-                reject(Error("Cannot validate chain.")).catch(error => {
-                    console.log('Error caught: ', error.message);
-                });
-            }
-        }).then(successfulValidation => {
-            console.log(successfulValidation);
-        }).catch(unsuccessfulValidation => {
-            console.log(unsuccessfulValidation);
+            });
+            resolve(errorLog)
         });
     }
 }
