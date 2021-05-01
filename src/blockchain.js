@@ -197,6 +197,11 @@ class Blockchain {
             self.chain.forEach(block => {
                 if(!block.validate()){
                     errorLog.push(block);
+                } 
+                for (var i = 1; i <= self.height; i++) {
+                    if (block.previousBlockHash != self.chain[i-1].hash) {
+                        console.log("Error with pevious block hash in chain");
+                    }
                 }
             });
             resolve(errorLog)
