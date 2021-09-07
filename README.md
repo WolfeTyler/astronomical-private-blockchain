@@ -1,5 +1,6 @@
 # Astronomical Private Blockchain Application
 
+Creates a private blockchain using Node.js and Leveldb.
 
 ## Purpose and API Workflow
 
